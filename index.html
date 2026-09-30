@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sky">
+        <div class="sun">☀</div>
+        <div class="moon">🌙</div>
+
+        <div class="cloud cloud-1">☁</div>
+        <div class="cloud cloud-2">☁</div>
+        <div class="cloud cloud-3">☁</div>
+
+        <main class="weather-app">
+
+            <div class="weather-card">
+
+                <h1>Weather App</h1>
+                <p class="subtitle">Cari informasi cuaca suatu kota</p>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="Masukkan nama kota..."
+                    >
+
+                    <button id="searchButton">Cari</button>
+                </div>
+
+                <p id="loading" class="loading">Memuat data...</p>
+
+                <p id="errorMessage" class="error"></p>
+
+                <div id="weatherResult" class="weather-result">
+
+                    <h2 id="cityName">-</h2>
+
+                    <img id="weatherIcon" src="" alt="Ikon cuaca">
+
+                    <h3 id="temperature">- °C</h3>
+
+                    <p id="description">-</p>
+
+                    <div class="weather-info">
+
+                        <div>
+                            <span>Kelembapan</span>
+                            <strong id="humidity">-</strong>
+                        </div>
+
+                        <div>
+                            <span>Terasa seperti</span>
+                            <strong id="feelsLike">-</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="history">
+                    <h3>Riwayat Pencarian</h3>
+                    <ul id="historyList"></ul>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

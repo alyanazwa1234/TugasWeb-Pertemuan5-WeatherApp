@@ -1,0 +1,401 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+.sky {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        180deg,
+        #55b7f7,
+        #a9def9
+    );
+
+    transition: background 0.8s ease;
+}
+
+/* Matahari */
+
+.sun {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    font-size: 70px;
+    color: #ffd54f;
+}
+
+/* Bulan */
+
+.moon {
+    display: none;
+
+    position: absolute;
+    top: 50px;
+    right: 100px;
+
+    font-size: 60px;
+}
+
+/* Awan */
+
+.cloud {
+    position: absolute;
+    color: white;
+    font-size: 70px;
+    opacity: 0.8;
+
+    animation: moveCloud 25s linear infinite;
+}
+
+.cloud-1 {
+    top: 80px;
+    left: -100px;
+}
+
+.cloud-2 {
+    top: 180px;
+    left: -250px;
+    font-size: 55px;
+    animation-duration: 32s;
+}
+
+.cloud-3 {
+    top: 280px;
+    left: -150px;
+    font-size: 80px;
+    animation-duration: 38s;
+}
+
+@keyframes moveCloud {
+
+    from {
+        transform: translateX(-150px);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+/* Tampilan utama */
+
+.weather-app {
+    width: 90%;
+    max-width: 700px;
+
+    margin: 0 auto;
+    padding: 70px 0;
+
+    position: relative;
+    z-index: 10;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #234;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    transition: 0.8s;
+}
+
+h1 {
+    color: #2477b5;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #557;
+    margin-bottom: 30px;
+}
+
+/* Pencarian */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 13px;
+
+    border: 1px solid #a8c9df;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #3498db;
+}
+
+.search-box button {
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #3498db;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #217dbb;
+}
+
+/* Loading dan error */
+
+.loading {
+    display: none;
+    color: #2477b5;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #d9534f;
+    margin-bottom: 15px;
+}
+
+/* Hasil cuaca */
+
+.weather-result {
+    display: none;
+    margin-top: 20px;
+}
+
+.weather-result h2 {
+    color: #2477b5;
+    margin-bottom: 10px;
+}
+
+.weather-result img {
+    width: 110px;
+    height: 110px;
+}
+
+.weather-result h3 {
+    font-size: 40px;
+    color: #2477b5;
+    margin: 5px 0;
+}
+
+#description {
+    text-transform: capitalize;
+
+    color: #557;
+
+    margin-bottom: 25px;
+}
+
+/* Informasi cuaca */
+
+.weather-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.weather-info div {
+    background: #eaf6ff;
+
+    border: 1px solid #b9d9ef;
+
+    border-radius: 12px;
+
+    padding: 15px 25px;
+}
+
+.weather-info span {
+    display: block;
+
+    color: #557;
+
+    margin-bottom: 5px;
+}
+
+.weather-info strong {
+    color: #2477b5;
+}
+
+/* Riwayat */
+
+.history {
+    margin-top: 35px;
+
+    text-align: left;
+}
+
+.history h3 {
+    color: #2477b5;
+
+    margin-bottom: 10px;
+}
+
+.history ul {
+    list-style: none;
+}
+
+.history li {
+    padding: 8px 0;
+
+    border-bottom: 1px solid #c7dfef;
+
+    color: #557;
+
+    cursor: pointer;
+}
+
+.history li:hover {
+    color: #2477b5;
+}
+
+/* ========================= */
+/* MODE MALAM */
+/* ========================= */
+
+body.night .sky {
+    background: linear-gradient(
+        180deg,
+        #101c3a,
+        #263b66
+    );
+}
+
+body.night .sun {
+    display: none;
+}
+
+body.night .moon {
+    display: block;
+}
+
+body.night .cloud {
+    color: #b7c2d6;
+    opacity: 0.35;
+}
+
+body.night .weather-card {
+    background: rgba(20, 31, 58, 0.94);
+
+    color: #f1f5ff;
+}
+
+body.night h1 {
+    color: #a9d8ff;
+}
+
+body.night .subtitle {
+    color: #c5d0e5;
+}
+
+body.night .weather-result h2 {
+    color: #a9d8ff;
+}
+
+body.night .weather-result h3 {
+    color: #a9d8ff;
+}
+
+body.night #description {
+    color: #c5d0e5;
+}
+
+body.night .weather-info div {
+    background: #172847;
+
+    border-color: #35537d;
+}
+
+body.night .weather-info span {
+    color: #c5d0e5;
+}
+
+body.night .weather-info strong {
+    color: #a9d8ff;
+}
+
+body.night .history h3 {
+    color: #a9d8ff;
+}
+
+body.night .history li {
+    color: #c5d0e5;
+
+    border-color: #35537d;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .weather-app {
+        width: 94%;
+        padding: 40px 0;
+    }
+
+    .weather-card {
+        padding: 25px 20px;
+    }
+
+    .sun,
+    .moon {
+        top: 25px;
+        right: 30px;
+    }
+
+    .sun {
+        font-size: 50px;
+    }
+
+    .moon {
+        font-size: 45px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .weather-info {
+        flex-direction: column;
+    }
+
+    .cloud {
+        font-size: 50px;
+    }
+}
